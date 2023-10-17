@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.app {
+  
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+.textarea-ellipsis {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+  font-weight: 100 900;
+  font-display: optional;
+  font-style: normal;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+

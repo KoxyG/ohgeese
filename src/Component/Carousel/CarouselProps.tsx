@@ -32,7 +32,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   return (
     <div className="relative flex justify-center w-full max-w-2xl mx-auto">
       <button
-        className="absolute top-1/2 transform -translate-y-1/2 left-0"
+        className="absolute top-1/2 transform -translate-y-1/2 ml-[20px] sm:ml-[0px] left-0"
         onClick={handlePrev}
       >
         {BasicIcons.prev}
@@ -42,7 +42,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         <AnimatePresence initial={false}>
           <motion.img
             key={currentIndex}
-            className="w-[200px] sm:h-[200px]  sm:w-[400px] sm:h-[400px]"
+            className="w-[300px] sm:h-[300px]  sm:w-[500px] sm:h-[500px]"
             src={images[currentIndex]}
             alt={`slide-${currentIndex}`}
             
@@ -55,7 +55,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       </div>
 
       <button
-        className="absolute top-1/2 transform -translate-y-1/2 right-0"
+        className="absolute top-1/2 transform -translate-y-1/2 ml-[20px] sm:ml-[0px] right-0"
         onClick={handleNext}
       >
         {BasicIcons.next}

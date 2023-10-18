@@ -5,8 +5,8 @@ import ImageCarousel from './CarouselProps';
 const Carousel: React.FC = () => {
   const images = [
     '/images/s1ngoose1.png',
-    '/images/screw.jpg',
-    '/images/fluent-emoji-flat_check-mark-button.png',
+    '/images/s1ngoose1.png',
+    '/images/s1ngoose1.png',
   ];
 
   return (

@@ -55,7 +55,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       </div>
 
       <button
-        className="absolute top-1/2 transform -translate-y-1/2 ml-[20px] sm:ml-[0px] right-0"
+        className="absolute top-1/2 transform -translate-y-1/2 mr-[20px] sm:mr-[0px] right-0"
         onClick={handleNext}
       >
         {BasicIcons.next}

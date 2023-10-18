@@ -59,8 +59,8 @@ const Home = () => {
       </section>
 
       {/* frequently asked queestion */}
-      <section className="py-[100px]  bg-[#f9fafb]">
-        <div className="text-center ">
+      <section className=" bg-[#f9fafb]">
+        <div className="py-[100px]  text-center ">
           <h1 className="font-black text-3xl sm:text-5xl  pt-[50px]">
             Frequently Asked Questions
           </h1>
@@ -70,7 +70,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="container  text-center text-black mx-auto px-8 grid justify-center py-[100px] gap-4 ">
+        <div className="container py-[100px]  text-center text-black mx-auto px-8 grid justify-center py-[100px] gap-4 ">
           
           <div className="grid text-center  pb-[60px]">
             <h3 className="font-bold text-xl sm:text-2xl ">

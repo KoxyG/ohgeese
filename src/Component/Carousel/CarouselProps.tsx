@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { BasicIcons } from "../../assets/SvgFiles";
 
 type ImageCarouselProps = {
@@ -29,6 +29,17 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  const controls = useAnimation();
+
+  const variants = {
+    enter: { x: 0, opacity: 1 },
+    exit: { x: -100, opacity: 0 },
+  };
+
+  const transition = { duration: 1, ease: 'easeInOut' };
+
+
+
   return (
     <div className="relative flex  justify-center w-full max-w-2xl mx-auto">
       <button
@@ -39,19 +50,20 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       </button>
 
       <div>
-        <AnimatePresence initial={false}>
+      
           <motion.img
             key={currentIndex}
-            className="w-[300px] sm:h-[300px]  sm:w-[500px] sm:h-[500px]"
+            className="w-[300px] frameImg sm:h-[300px]  sm:w-[500px] sm:h-[500px]"
             src={images[currentIndex]}
             alt={`slide-${currentIndex}`}
-            
-            initial={{ opacity: 1, }}
-            animate={{ opacity: 1 } }
-            viewport={{ once: true }}
+            variants={variants}
+            initial="enter"
+            exit="exit"
+            transition={transition}
+            animate={controls}
             
           />
-        </AnimatePresence>
+     
       </div>
 
       <button
@@ -60,9 +72,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       >
         {BasicIcons.next}
       </button>
-
-
-      
     </div>
   );
 };

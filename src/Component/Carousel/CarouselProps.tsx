@@ -56,7 +56,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                transition: {
                  type: "spring",
                  duration: 1,
-                 stiffness: 50 ,
+                 
                  restSpeed: 0.5,
                  ease: easeInOut, // Use the easing function here
                },

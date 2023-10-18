@@ -1,7 +1,7 @@
 import Button from "../Component/Button";
 import Carousel from "../Component/Carousel";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
 
 const Home = () => {
   const [next, setNext] = useState<boolean>(false);
@@ -9,6 +9,18 @@ const Home = () => {
   const handleNext = () => {
     setNext(next);
   };
+
+  //   animmation on scroll
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+
+  const scrollProgress = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
   return (
     <div className="">
       <section className="container mx-auto">
@@ -60,74 +72,82 @@ const Home = () => {
 
       {/* frequently asked queestion */}
       <section className=" bg-[#f9fafb]">
-        <div className="py-[100px]  text-center ">
-          <h1 className="font-black text-3xl sm:text-5xl  pt-[50px]">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-dark text-[12px] sm:text-[22px] pt-[10px]">
-            Cupiditate reprehenderit dignissimos maxime distinctio <br /> quia
-            iste. Eum aliquam nulla voluptatum iure.
-          </p>
-        </div>
-
-        <div className="container pb-[100px]  text-center text-black mx-auto px-8 grid justify-center py-[100px] gap-4 ">
-          
-          <div className="grid text-center  pb-[60px]">
-            <h3 className="font-bold text-xl sm:text-2xl ">
-              Move weight here just either attorney?
-            </h3>
-            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
-              Officier journal personnage maintenant. Métier arracher cou
-              secours voler air.<br  /> Maintenant parole prévenir creuser froid
-              distinguer affaire rocher.
+        <div>
+          <motion.div
+            ref={ref}
+            style={{
+              scale: scrollProgress,
+              opacity: opacityProgress,
+            }}
+            className="py-[100px]  text-center "
+          >
+            <h1 className="font-black text-3xl sm:text-5xl  pt-[50px]">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-dark text-[12px] sm:text-[22px] pt-[10px]">
+              Cupiditate reprehenderit dignissimos maxime distinctio <br /> quia
+              iste. Eum aliquam nulla voluptatum iure.
             </p>
+          </motion.div>
+
+          <div className="container pb-[100px]  text-center text-black mx-auto px-8 grid justify-center py-[100px] gap-4 ">
+            <div className="grid text-center  pb-[60px]">
+              <h3 className="font-bold text-xl sm:text-2xl ">
+                Move weight here just either attorney?
+              </h3>
+              <p className="text-[8px] sm:text-[16px] pt-[10px]">
+                Officier journal personnage maintenant. Métier arracher cou
+                secours voler air.
+                <br /> Maintenant parole prévenir creuser froid distinguer
+                affaire rocher.
+              </p>
+            </div>
+
+            <div className="grid pb-[60px]">
+              <h3 className="font-bold text-xl sm:text-2xl ">
+                Move weight here just either attorney?
+              </h3>
+              <p className="text-[8px] sm:text-[16px] pt-[10px]">
+                Officier journal personnage maintenant. Métier arracher cou
+                secours voler air.
+                <br /> Maintenant parole prévenir creuser froid distinguer
+                affaire rocher.
+              </p>
+            </div>
+
+            <div className="grid pb-[60px] ">
+              <h3 className="font-bold text-xl sm:text-2xl ">
+                Move weight here just either attorney?
+              </h3>
+              <p className="text-[8px] sm:text-[16px] pt-[10px]">
+                Officier journal personnage maintenant. Métier arracher cou
+                secours voler air.
+                <br /> Maintenant parole prévenir creuser froid distinguer
+                affaire rocher.
+              </p>
+            </div>
+
+            <div className="grid">
+              <h3 className="font-bold text-xl sm:text-2xl ">
+                Move weight here just either attorney?
+              </h3>
+              <p className="text-[8px] sm:text-[16px] pt-[10px]">
+                Officier journal personnage maintenant. Métier arracher cou
+                secours voler air.
+                <br /> Maintenant parole prévenir creuser froid distinguer
+                affaire rocher.
+              </p>
+            </div>
           </div>
-
-          <div className="grid pb-[60px]">
-            <h3 className="font-bold text-xl sm:text-2xl ">
-              Move weight here just either attorney?
-            </h3>
-            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
-              Officier journal personnage maintenant. Métier arracher cou
-              secours voler air.<br  /> Maintenant parole prévenir creuser froid
-              distinguer affaire rocher.
-            </p>
-          </div>
-
-          <div className="grid pb-[60px] ">
-            <h3 className="font-bold text-xl sm:text-2xl ">
-              Move weight here just either attorney?
-            </h3>
-            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
-              Officier journal personnage maintenant. Métier arracher cou
-              secours voler air.<br  /> Maintenant parole prévenir creuser froid
-              distinguer affaire rocher.
-            </p>
-          </div>
-
-          <div className="grid">
-            <h3 className="font-bold text-xl sm:text-2xl ">
-              Move weight here just either attorney?
-            </h3>
-            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
-              Officier journal personnage maintenant. Métier arracher cou
-              secours voler air.<br  /> Maintenant parole prévenir creuser froid
-              distinguer affaire rocher.
-            </p>
-          </div>
-
-
         </div>
       </section>
       <hr />
 
       <section>
-          <footer className="flex justify-between container mx-auto px-8  py-[30px]">
-          <p className="mb-6 md:mb-0">
-            © {new Date().getFullYear()} ohgeese
-          </p>
+        <footer className="flex justify-between container mx-auto px-8  py-[30px]">
+          <p className="mb-6 md:mb-0">© {new Date().getFullYear()} ohgeese</p>
           <p className="">Documentation</p>
-          </footer>
+        </footer>
       </section>
     </div>
   );

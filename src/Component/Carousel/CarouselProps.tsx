@@ -48,16 +48,16 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             className="w-[300px] frameImg sm:h-[300px]  sm:w-[500px] sm:h-[500px]"
             src={images[currentIndex]}
             alt={`slide-${currentIndex}`}
-            initial={{ opacity: 0, x: -100, y: 0 }}
+            initial={{ opacity: 10, x: -150, y: 0 }}
             animate={{
-               opacity: 1,
+               opacity: 10,
                x: 2,
                transition: {
                  repeatType: "mirror",
-                 duration: 1,
+                 duration: 2,
                  ease: "easeOut",
+                 repeatDelay: 1 ,
                },
-          overflow: "show",
           }}
 
           />

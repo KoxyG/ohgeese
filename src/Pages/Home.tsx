@@ -70,7 +70,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="container text-black mx-auto px-8 grid justify-center py-[100px] gap-4 ">
+        <div className="container  text-center text-black mx-auto px-8 grid justify-center py-[100px] gap-4 ">
           
           <div className="grid pb-[60px]">
             <h3 className="font-bold text-xl sm:text-2xl ">

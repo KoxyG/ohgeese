@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { motion, Transition} from "framer-motion";
+import { motion} from "framer-motion";
 import { BasicIcons } from "../../assets/SvgFiles";
 
 type ImageCarouselProps = {
@@ -30,8 +30,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 
   
   
-  const easeInOut: Transition = { type: "easeOut" };
-
+  
 
   return (
     <div className="relative flex  justify-center w-full max-w-2xl mx-auto">
@@ -57,7 +56,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                  repeatType: "mirror",
                  duration: 1,
                  ease: "easeOut",
-                 // Use the easing function here
                },
           overflow: "show",
           }}

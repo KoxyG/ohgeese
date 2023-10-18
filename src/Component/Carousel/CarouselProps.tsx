@@ -24,13 +24,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   
   // Auto-play slides using useEffect
   useEffect(() => {
-     const intervalId = setInterval(handleNext, 3000); // Change 3000 to the desired interval in milliseconds
+     const intervalId = setInterval(handleNext, 5000); // Change 3000 to the desired interval in milliseconds
      return () => clearInterval(intervalId); // Cleanup on component unmount
    }, [currentIndex]);
 
   
   
-  const easeInOut: Transition = { type: "easeInOut" };
+  const easeInOut: Transition = { type: "easeOut" };
 
 
   return (
@@ -42,23 +42,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         {BasicIcons.prev}
       </button>
 
-      <div>
+      <div className="">
       
           <motion.img
             key={currentIndex}
             className="w-[300px] frameImg sm:h-[300px]  sm:w-[500px] sm:h-[500px]"
             src={images[currentIndex]}
             alt={`slide-${currentIndex}`}
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: -100, y: 0 }}
             animate={{
                opacity: 1,
-               x: 1,
+               x: 2,
                transition: {
-                 type: "spring",
+                 repeatType: "mirror",
                  duration: 1,
-                 
-                 restSpeed: 0.5,
-                 ease: easeInOut, // Use the easing function here
+                 ease: "easeOut",
+                 // Use the easing function here
                },
           overflow: "show",
           }}

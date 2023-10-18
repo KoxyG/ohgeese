@@ -45,8 +45,8 @@ const Home = () => {
           <Carousel />
         </motion.div>
 
-        <motion.div  whileTap={{ scale: 0.9 }}
-            whileHover={{ scale: 1.1 }} className="grid pb-[100px] justify-center">
+        {/* connect wallet */}
+        <div className="grid pb-[100px] justify-center">
           <Button
             className="px-4 sm:px-6 py-[10px] sm:py-[20px] text-[15px] sm:text-[25px] text-white bg-[#1c4ed8]"
             onClick={handleNext}
@@ -55,12 +55,79 @@ const Home = () => {
             {" "}
             connect wallet
           </Button>
-        </motion.div>
+        </div>
       </section>
 
+      {/* frequently asked queestion */}
+      <section className="py-[100px]  bg-[#f9fafb]">
+        <div className="text-center ">
+          <h1 className="font-black text-3xl sm:text-5xl  pt-[50px]">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-gray text-[12px] sm:text-[22px] pt-[10px]">
+            Cupiditate reprehenderit dignissimos maxime distinctio <br /> quia
+            iste. Eum aliquam nulla voluptatum iure.
+          </p>
+        </div>
+
+        <div className="container mx-auto px-8 grid grid-cols-2 py-[100px] gap-4 ">
+          
+          <div className="grid pb-[60px]">
+            <h3 className="font-bold text-xl sm:text-2xl ">
+              Move weight here just either attorney?
+            </h3>
+            <p  className="text-gray text-[8px] sm:text-[16px] pt-[10px]">
+              Officier journal personnage maintenant. Métier arracher cou
+              secours voler air.<br  /> Maintenant parole prévenir creuser froid
+              distinguer affaire rocher.
+            </p>
+          </div>
+
+          <div className="grid pb-[60px]">
+            <h3 className="font-bold text-xl sm:text-2xl ">
+              Move weight here just either attorney?
+            </h3>
+            <p  className="text-gray text-[8px] sm:text-[16px] pt-[10px]">
+              Officier journal personnage maintenant. Métier arracher cou
+              secours voler air.<br  /> Maintenant parole prévenir creuser froid
+              distinguer affaire rocher.
+            </p>
+          </div>
+
+          <div className="grid ">
+            <h3 className="font-bold text-xl sm:text-2xl ">
+              Move weight here just either attorney?
+            </h3>
+            <p  className="text-gray text-[8px] sm:text-[16px] pt-[10px]">
+              Officier journal personnage maintenant. Métier arracher cou
+              secours voler air.<br  /> Maintenant parole prévenir creuser froid
+              distinguer affaire rocher.
+            </p>
+          </div>
+
+          <div className="grid">
+            <h3 className="font-bold text-xl sm:text-2xl ">
+              Move weight here just either attorney?
+            </h3>
+            <p  className="text-gray text-[8px] sm:text-[16px] pt-[10px]">
+              Officier journal personnage maintenant. Métier arracher cou
+              secours voler air.<br  /> Maintenant parole prévenir creuser froid
+              distinguer affaire rocher.
+            </p>
+          </div>
+
+
+        </div>
+      </section>
+      <hr />
 
       <section>
-        
+          <footer className="flex justify-between container mx-auto px-8  py-[30px]">
+          <p className="mb-6 md:mb-0">
+            © {new Date().getFullYear()} ohgeese
+          </p>
+          <p className="">Documentation</p>
+          </footer>
       </section>
     </div>
   );

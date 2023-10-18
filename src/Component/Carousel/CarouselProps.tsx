@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useState, useEffect} from "react";
+import { motion, Transition} from "framer-motion";
 import { BasicIcons } from "../../assets/SvgFiles";
 
 type ImageCarouselProps = {
@@ -9,15 +9,7 @@ type ImageCarouselProps = {
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [images.length]);
 
   const handlePrev = () => {
     setCurrentIndex(
@@ -29,15 +21,16 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const controls = useAnimation();
+  
+  // Auto-play slides using useEffect
+  useEffect(() => {
+     const intervalId = setInterval(handleNext, 3000); // Change 3000 to the desired interval in milliseconds
+     return () => clearInterval(intervalId); // Cleanup on component unmount
+   }, [currentIndex]);
 
-  const variants = {
-    enter: { x: 0, opacity: 1 },
-    exit: { x: -100, opacity: 0 },
-  };
-
-  const transition = { duration: 1, ease: 'easeInOut' };
-
+  
+  
+  const easeInOut: Transition = { type: "easeInOut" };
 
 
   return (
@@ -56,12 +49,20 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             className="w-[300px] frameImg sm:h-[300px]  sm:w-[500px] sm:h-[500px]"
             src={images[currentIndex]}
             alt={`slide-${currentIndex}`}
-            variants={variants}
-            initial="enter"
-            exit="exit"
-            transition={transition}
-            animate={controls}
-            
+            initial={{ opacity: 0, x: -100 }}
+            animate={{
+               opacity: 1,
+               x: 1,
+               transition: {
+                 type: "spring",
+                 duration: 1,
+                 stiffness: 50 ,
+                 restSpeed: 0.5,
+                 ease: easeInOut, // Use the easing function here
+               },
+          overflow: "show",
+          }}
+
           />
      
       </div>

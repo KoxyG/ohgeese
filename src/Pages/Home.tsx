@@ -25,7 +25,7 @@ const Home = () => {
           <h1 className="font-black text-4xl sm:text-6xl  pt-[50px]">
             Build Something Amazing
           </h1>
-          <p className="text-black text-[12px] sm:text-[22px] pt-[10px]">
+          <p className="text-[12px] sm:text-[22px] pt-[10px]">
             Must today firm from bag. Investment try cold a when <br /> capital.
             Everything wait person service.
           </p>
@@ -76,7 +76,7 @@ const Home = () => {
             <h3 className="font-bold text-xl sm:text-2xl ">
               Move weight here just either attorney?
             </h3>
-            <p  className="text-black text-[8px] sm:text-[16px] pt-[10px]">
+            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
               Officier journal personnage maintenant. Métier arracher cou
               secours voler air.<br  /> Maintenant parole prévenir creuser froid
               distinguer affaire rocher.
@@ -87,7 +87,7 @@ const Home = () => {
             <h3 className="font-bold text-xl sm:text-2xl ">
               Move weight here just either attorney?
             </h3>
-            <p  className="text-dark text-[8px] sm:text-[16px] pt-[10px]">
+            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
               Officier journal personnage maintenant. Métier arracher cou
               secours voler air.<br  /> Maintenant parole prévenir creuser froid
               distinguer affaire rocher.
@@ -98,7 +98,7 @@ const Home = () => {
             <h3 className="font-bold text-xl sm:text-2xl ">
               Move weight here just either attorney?
             </h3>
-            <p  className="text-dark text-[8px] sm:text-[16px] pt-[10px]">
+            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
               Officier journal personnage maintenant. Métier arracher cou
               secours voler air.<br  /> Maintenant parole prévenir creuser froid
               distinguer affaire rocher.
@@ -109,7 +109,7 @@ const Home = () => {
             <h3 className="font-bold text-xl sm:text-2xl ">
               Move weight here just either attorney?
             </h3>
-            <p  className="text-dark text-[8px] sm:text-[16px] pt-[10px]">
+            <p  className="text-[8px] sm:text-[16px] pt-[10px]">
               Officier journal personnage maintenant. Métier arracher cou
               secours voler air.<br  /> Maintenant parole prévenir creuser froid
               distinguer affaire rocher.
@@ -122,7 +122,7 @@ const Home = () => {
       <hr />
 
       <section>
-          <footer className="flex  text-black justify-between container mx-auto px-8  py-[30px]">
+          <footer className="flex justify-between container mx-auto px-8  py-[30px]">
           <p className="mb-6 md:mb-0">
             © {new Date().getFullYear()} ohgeese
           </p>

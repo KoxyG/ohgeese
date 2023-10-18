@@ -45,7 +45,8 @@ const Home = () => {
           <Carousel />
         </motion.div>
 
-        <div className="grid pb-[100px] justify-center">
+        <motion.div  whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.1 }} className="grid pb-[100px] justify-center">
           <Button
             className="px-4 sm:px-6 py-[10px] sm:py-[20px] text-[15px] sm:text-[25px] text-white bg-[#1c4ed8]"
             onClick={handleNext}
@@ -54,7 +55,7 @@ const Home = () => {
             {" "}
             connect wallet
           </Button>
-        </div>
+        </motion.div>
       </section>
 
 

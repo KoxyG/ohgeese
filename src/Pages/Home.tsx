@@ -122,7 +122,7 @@ const Home = () => {
       <hr />
 
       <section>
-          <footer className="flex  text-dark justify-between container mx-auto px-8  py-[30px]">
+          <footer className="flex  text-black justify-between container mx-auto px-8  py-[30px]">
           <p className="mb-6 md:mb-0">
             © {new Date().getFullYear()} ohgeese
           </p>

@@ -30,7 +30,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative flex justify-center w-full max-w-2xl mx-auto">
+    <div className="relative flex  justify-center w-full max-w-2xl mx-auto">
       <button
         className="absolute top-1/2 transform -translate-y-1/2 ml-[20px] sm:ml-[0px] left-0"
         onClick={handlePrev}
@@ -60,6 +60,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       >
         {BasicIcons.next}
       </button>
+
+
+      
     </div>
   );
 };

@@ -42,14 +42,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         <AnimatePresence initial={false}>
           <motion.img
             key={currentIndex}
-            className="w-[400px] h-[400px]"
+            className="w-[200px] sm:h-[200px]  sm:w-[400px] sm:h-[400px]"
             src={images[currentIndex]}
             alt={`slide-${currentIndex}`}
-            transition={{
-               ease: "linear",
-               duration: 1,
-               x: { duration: 1 },
-             }}
+            
             initial={{ opacity: 1, }}
             animate={{ opacity: 1 } }
             viewport={{ once: true }}

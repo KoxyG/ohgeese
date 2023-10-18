@@ -17,7 +17,7 @@ const Home = () => {
         <h1 className="font-black text-4xl sm:text-6xl  pt-[100px]">
           Build Something Amazing
         </h1>
-        <p className="text-gray-700 text-[12px] sm:text-[22px] pt-[10px]">
+        <p className="text-gray-500 text-[12px] sm:text-[22px] pt-[10px]">
           Must today firm from bag. Investment try cold a when <br /> capital.
           Everything wait person service.
         </p>

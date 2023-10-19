@@ -32,7 +32,7 @@ const Home = () => {
             duration: 1,
             x: { duration: 1 },
           }}
-          className="text-center "
+          className="text-center pb-[50px]"
         >
           <h1 className="font-black text-4xl sm:text-6xl  pt-[50px]">
             Build Something Amazing
@@ -58,7 +58,7 @@ const Home = () => {
         </motion.div>
 
         {/* connect wallet */}
-        <div className="grid pb-[100px] justify-center">
+        <div className="grid pt-[50px] pb-[100px] justify-center">
           <Button
             className="px-4 sm:px-6 py-[10px] sm:py-[20px] text-[15px] sm:text-[25px] text-white bg-[#1c4ed8]"
             onClick={handleNext}

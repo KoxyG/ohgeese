@@ -4,7 +4,8 @@ import { Swiper as SwiperReact } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
 import "swiper/css/navigation";
-import { BasicIcons } from "../../assets/SvgFiles";
+import { Scrollbar } from 'swiper/modules';
+// import { BasicIcons } from "../../assets/SvgFiles";
 
 SwiperCore.use([]);
 
@@ -38,7 +39,7 @@ const CustomSwiper: React.FC<CustomSwiperProps> = ({
 
   return (
     <>
-      <button
+      {/* <button
         className="btn-prev absolute top-1/2 text-dark -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 z-20  left-0 p-2 hover:cursor-pointer"
         onClick={() => {
           swiperRef.current?.slidePrev();
@@ -53,7 +54,7 @@ const CustomSwiper: React.FC<CustomSwiperProps> = ({
         }}
       >
         {BasicIcons.next}
-      </button>
+      </button> */}
 
       <SwiperReact
         slidesPerView={slidesPerView}
@@ -70,6 +71,11 @@ const CustomSwiper: React.FC<CustomSwiperProps> = ({
             slidesPerView: 1,
           },
         }}
+        scrollbar={{
+          hide: true,
+        }}
+        modules={[Scrollbar]}
+        className="mySwiper"
       >
         {children}
       </SwiperReact>

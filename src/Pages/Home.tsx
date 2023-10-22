@@ -1,15 +1,12 @@
-import Button from "../Component/Button";
+import ConnectWallet from "../Blockchain Service/ConnectWallet";
 import Carousel from "../Component/Carousel";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+
+
 
 const Home = () => {
-  const [next, setNext] = useState<boolean>(false);
-
-  const handleNext = () => {
-    setNext(next);
-  };
-
+  
   //   animmation on scroll
   const ref = useRef<HTMLDivElement>(null);
 
@@ -57,17 +54,7 @@ const Home = () => {
           <Carousel />
         </motion.div>
 
-        {/* connect wallet */}
-        <div className="grid pt-[50px] pb-[100px] justify-center">
-          <Button
-            className="px-4 sm:px-6 py-[10px] sm:py-[20px] text-[15px] sm:text-[25px] text-white bg-[#1c4ed8]"
-            onClick={handleNext}
-            type="button"
-          >
-            {" "}
-            connect wallet
-          </Button>
-        </div>
+        <ConnectWallet />
       </section>
 
       {/* frequently asked queestion */}

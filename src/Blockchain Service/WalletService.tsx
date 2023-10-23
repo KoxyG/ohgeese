@@ -3,7 +3,9 @@ import {
   disconnect,
   ConnectedStarknetWindowObject,
 } from "@argent/get-starknet";
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
+
+
 
 export interface WalletServiceProps {
   isConnected: boolean;
@@ -23,9 +25,7 @@ const WalletService = () => {
 
   const connectWallet = async () => {
     try {
-      const connection = await connect({
-        webWalletUrl: "https://web.argent.xyz",
-      });
+      const connection = await connect({modalMode: "neverAsk", webWalletUrl: "https://web.argent.xyz"})
       console.log(connection);
       // to reconnect to a previously connected wallet on load:
       // const connection = await connect({modalMode: "neverAsk", webWalletUrl: "https://web.argent.xyz"})
@@ -50,9 +50,9 @@ const WalletService = () => {
     }
   };
 
-  // useEffect(() => {
-  //   connectWallet();
-  // }, []);
+  useEffect(() => {
+   connectWallet();
+   }, []);
 
   //Disconnecting wallet
   const disconnectWallet = async () => {

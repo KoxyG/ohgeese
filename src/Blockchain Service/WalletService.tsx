@@ -25,7 +25,7 @@ const WalletService = () => {
 
   const connectWallet = async () => {
     try {
-      const connection = await connect({modalMode: "neverAsk", webWalletUrl: "https://web.argent.xyz"})
+      const connection = await connect({webWalletUrl: "https://web.argent.xyz"});
       console.log(connection);
       // to reconnect to a previously connected wallet on load:
       // const connection = await connect({modalMode: "neverAsk", webWalletUrl: "https://web.argent.xyz"})

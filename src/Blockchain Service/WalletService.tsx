@@ -3,7 +3,7 @@ import {
   disconnect,
   ConnectedStarknetWindowObject,
 } from "@argent/get-starknet";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 export interface WalletServiceProps {
   isConnected: boolean;
@@ -50,9 +50,9 @@ const WalletService = () => {
     }
   };
 
-  useEffect(() => {
-    connectWallet();
-  }, []);
+  // useEffect(() => {
+  //   connectWallet();
+  // }, []);
 
   //Disconnecting wallet
   const disconnectWallet = async () => {
@@ -62,6 +62,12 @@ const WalletService = () => {
     setAddress("");
   };
 
+  const  fetchStableCoin = async () => {
+
+  }
+
+
+
   return {
     connection,
     setConnection,
@@ -69,6 +75,7 @@ const WalletService = () => {
     address,
     connectWallet,
     disconnectWallet,
+    fetchStableCoin,
   };
 };
 

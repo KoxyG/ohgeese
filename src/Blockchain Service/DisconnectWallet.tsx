@@ -27,7 +27,7 @@ const DisconnectWallet = () => {
 
 
   return (
-    <div className="grid justify-center pt-[40px]">
+    <div className="grid justify-end p-[40px] ">
       <Button
         className="px-4 sm:px-6 py-[10px] sm:py-[20px] text-[15px] sm:text-[25px] text-white bg-[#1c4ed8]"
         onClick={handleHome}

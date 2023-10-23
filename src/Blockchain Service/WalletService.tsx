@@ -1,5 +1,9 @@
-import { connect, disconnect, ConnectedStarknetWindowObject } from "@argent/get-starknet";
-import { useState } from "react";
+import {
+  connect,
+  disconnect,
+  ConnectedStarknetWindowObject,
+} from "@argent/get-starknet";
+import { useEffect, useState } from "react";
 
 export interface WalletServiceProps {
   isConnected: boolean;
@@ -8,12 +12,14 @@ export interface WalletServiceProps {
 }
 
 const WalletService = () => {
-  const [connection, setConnection] = useState<ConnectedStarknetWindowObject | undefined
->();
+  const [connection, setConnection] = useState<
+    ConnectedStarknetWindowObject | undefined
+  >();
 
   // const [connection, setConnection] = useState<WalletServiceProps | null>(null);
   const [provider, setProvider] = useState<string | null>(null);
   const [address, setAddress] = useState<string>("");
+
 
   const connectWallet = async () => {
     try {
@@ -30,21 +36,31 @@ const WalletService = () => {
         setAddress(connection.selectedAddress);
       }
 
-     //  make RPC calls here
-     
+      //  make RPC calls here
+      if (connection?.account) {
+        const nonce = await connection.account.getNonce();
+        const message = await connection.account.signMessage();
+
+        console.log("nonce", nonce);
+        console.log("message", message);
+      }
+    
     } catch (error) {
       console.log("Error while connecting to wallet", error);
     }
   };
 
+  useEffect(() => {
+    connectWallet();
+  }, []);
+
   //Disconnecting wallet
   const disconnectWallet = async () => {
-   await disconnect();
+    await disconnect();
     setConnection(undefined);
     setProvider(null);
-    setAddress('');
-  }
-
+    setAddress("");
+  };
 
   return {
     connection,

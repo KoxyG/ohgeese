@@ -3,7 +3,7 @@ import {
   disconnect,
   ConnectedStarknetWindowObject,
 } from "@argent/get-starknet";
-import {  useEffect, useState } from "react";
+import { useState } from "react";
 
 
 
@@ -50,10 +50,7 @@ const WalletService = () => {
     }
   };
 
-  useEffect(() => {
-   connectWallet();
-   }, []);
-
+  
   //Disconnecting wallet
   const disconnectWallet = async () => {
     await disconnect();

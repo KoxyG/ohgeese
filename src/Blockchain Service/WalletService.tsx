@@ -4,6 +4,7 @@ import {
   ConnectedStarknetWindowObject,
 } from "@argent/get-starknet";
 import { useState } from "react";
+import { UseOgheeseContext } from "../Store/ogheeseContext";
 
 
 
@@ -13,57 +14,74 @@ export interface WalletServiceProps {
   selectedAddress: string;
 }
 
+// ... (previous imports and code)
+
 const WalletService = () => {
+
+  const {setActive} = UseOgheeseContext();
+
   const [connection, setConnection] = useState<
     ConnectedStarknetWindowObject | undefined
   >();
-
-  // const [connection, setConnection] = useState<WalletServiceProps | null>(null);
   const [provider, setProvider] = useState<string | null>(null);
   const [address, setAddress] = useState<string>("");
+  const [chainId, setChainId] = useState<string>("");
 
 
-  const connectWallet = async () => {
+ const connectWallet = async () => {
     try {
-      const connection = await connect({webWalletUrl: "https://web.argent.xyz"});
-      console.log(connection);
-      // to reconnect to a previously connected wallet on load:
-      // const connection = await connect({modalMode: "neverAsk", webWalletUrl: "https://web.argent.xyz"})
+      const conn = await connect({  webWalletUrl: "https://web.argent.xyz" });
 
-      if (connection && connection.isConnected) {
-        setConnection(connection);
-        setProvider(connection.account);
-        setAddress(connection.selectedAddress);
+      if (conn && conn.isConnected) {
+        await conn.enable({ starknetVersion: "v4" });
+        setConnection(conn);
+        setActive(true);
+        setProvider(conn.account);
+        setAddress(conn.selectedAddress);
+        setChainId(conn.chainId)
+      } else {
+        throw new Error("User rejected wallet selection or silent connect found nothing");
       }
 
       //  make RPC calls here
-      if (connection?.account) {
-        const nonce = await connection.account.getNonce();
-        const message = await connection.account.signMessage();
-
-        console.log("nonce", nonce);
-        console.log("message", message);
-      }
-    
+     
     } catch (error) {
-      console.log("Error while connecting to wallet", error);
+      console.error("Error while connecting to wallet", error);
+      alert(error instanceof Error ? error.message : "An unknown error occurred");
     }
   };
 
-  
-  //Disconnecting wallet
+
+
+  // Disconnecting wallet
   const disconnectWallet = async () => {
-    await disconnect();
-    setConnection(undefined);
-    setProvider(null);
-    setAddress("");
+    try {
+      await disconnect();
+      setConnection(undefined);
+      setProvider(null);
+      setAddress("");
+      setActive(false);
+    } catch (error) {
+      console.error("Error while disconnecting wallet", error);
+      alert(error instanceof Error ? error.message : "An unknown error occurred");
+    }
   };
 
-  const  fetchStableCoin = async () => {
-
-  }
 
 
+  const Mint = async () => {
+    try {
+      console.log("Minting");
+    } catch (error) {
+      console.error("Error while disconnecting wallet", error);
+      alert(error instanceof Error ? error.message : "An unknown error occurred");
+    }
+  };
+  
+
+  
+
+  
 
   return {
     connection,
@@ -72,8 +90,11 @@ const WalletService = () => {
     address,
     connectWallet,
     disconnectWallet,
-    fetchStableCoin,
+    chainId,
+    Mint,
   };
 };
 
 export default WalletService;
+
+

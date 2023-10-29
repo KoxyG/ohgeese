@@ -3,14 +3,17 @@ import Carousel from "../Component/Carousel";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Oh_Geese } from "../assets/SvgFiles";
-import { UseOgheeseContext } from "../Store/ogheeseContext";
 import Button from "../Component/Button";
 import WalletService from "../Blockchain Service/WalletService";
+import { UseOgheeseContext } from "../Store/ogheeseContext";
+
 
 const Home = () => {
-  const { active } = UseOgheeseContext();
+  
 
-  const { disconnectWallet } = WalletService();
+  const wallet = WalletService()
+  const Context = UseOgheeseContext()
+  
 
   //   animmation on scroll
   const ref = useRef<HTMLDivElement>(null);
@@ -26,7 +29,7 @@ const Home = () => {
   return (
     <div className="">
       <section className="container mx-auto">
-        {!active ? (
+        {!Context.active ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -51,7 +54,7 @@ const Home = () => {
               <Button
                 className="px-4 sm:px-6 py-[10px] sm:py-[20px] text-[15px] sm:text-[25px] text-white bg-[#1c4ed8]"
                 onClick={async () => {
-                  await disconnectWallet();
+                  await wallet.UsedisconnectWallet();
                   location.reload();
                 }}
                 type="button"
@@ -84,7 +87,7 @@ const Home = () => {
 
         {/* carousel image */}
 
-        {!active ? (
+        {!Context.active ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -107,7 +110,7 @@ const Home = () => {
           </div>
         )}
 
-        <ConnectWallet />
+        <ConnectWallet/>
       </section>
 
       {/* frequently asked queestion */}

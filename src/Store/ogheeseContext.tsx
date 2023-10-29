@@ -2,37 +2,49 @@ import React, { createContext, ReactNode, Dispatch, SetStateAction, useContext }
 
 
 
-interface OgheeseContextProps extends Iterable<[string, Dispatch<SetStateAction<string>>]>{
-  active: boolean | undefined; 
+export interface OgheeseContextProps {
+  active: boolean | undefined;
+  connectStarket: string;
+  setConnectStarket: Dispatch<SetStateAction<string>>;
+  addressActive: string;
+  setAddressActive: Dispatch<SetStateAction<string>>;
   setActive: Dispatch<SetStateAction<boolean | undefined>>;
-
-  address: string; 
-  setAddress: Dispatch<SetStateAction<string>>;
+  chain: string;
+  setChain: Dispatch<SetStateAction<string>>;
 }
 
+const OgheeseContext = createContext<OgheeseContextProps>({
+  connectStarket: "",
+  setConnectStarket: () => {},
+  active: false, 
+  addressActive: "",
+  setAddressActive: () => {},
+  setActive: () => {},
+  chain: "",
+  setChain: () => {},
+});
 
 
-export const OgheeseContext = createContext<OgheeseContextProps | undefined>(undefined);
 
 const OgheeseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  
-  const [active, setActive] = React.useState<boolean>(); 
-  const [address, setAddress] = React.useState<string>("");
-
+  const [active, setActive] = React.useState<boolean | undefined>(undefined);
+  const [chain, setChain] = React.useState<string>("");
+  const [addressActive, setAddressActive] = React.useState<string>("");
+  const [connectStarket, setConnectStarket] = React.useState<string>("");
 
 
   return (
     <div>
       <OgheeseContext.Provider
         value={{
-
+          connectStarket,
+          setConnectStarket,
           active,
           setActive,
-          address,
-          setAddress,
-          [Symbol.iterator]: function* () {
-            yield ["address", setAddress];
-          },
+          addressActive,
+          setAddressActive,
+          chain,
+          setChain,
         }}
       >
         {children}
@@ -41,12 +53,6 @@ const OgheeseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-const UseOgheeseContext = () => {
-  const context = useContext(OgheeseContext);
-  if (!context) {
-    throw new Error("useOgheeseContext must be within a provider");
-  }
-  return context;
-};
+const   UseOgheeseContext = () => useContext(OgheeseContext);
 
 export { OgheeseProvider, UseOgheeseContext };
